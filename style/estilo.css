@@ -1,7 +1,7 @@
 button {
 	padding: 10px 20px;
 	font-size: 18px;
-	background-color: #c01bf1a1;
+	background-color: #F1DEE9;
 	color: white;
 	border: none;
 	border-radius: 5px;
@@ -10,9 +10,13 @@ button {
 }
 
 button:hover {
-	background-color: #a212ceb9;
+	background-color: #F1DEE9;
 }
 
 body{
-	background-color: rgba(0, 0, 0, 0.404)
+	background-color: #F1DEE9;
+}
+div{
+
+	
 }
