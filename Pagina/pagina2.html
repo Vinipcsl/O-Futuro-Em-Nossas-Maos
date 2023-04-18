@@ -1,75 +1,79 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Futuro em Nossas Mãos</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../style/estilo.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-   
+	<link rel="stylesheet" href="../style/stylePage2.css">
 </head>
-<style>
-	body {
-  background-color: #F1DEE9;
-}
-</style>
+
 <body>
-	<nav class="navbar bg-primary justify-content-between" data-bs-theme="dark" >	
-    			<a class="navbar-brand" href="#">
-      				<img src="../imagens do projeto/Logo do projeto.jpg" alt="Logo" width="90" height="70" class="d-inline-block ">
-     Futuro em Nossas Mãos
-    			</a>
-		<ul class="nav justify-content-end " >
-  			<li class="nav-item">
-    			<a class="nav-link active" aria-current="page" href="index.html"> <h5>Home</h5></a>
-  			</li>
-  			<li class="nav-item">
-    			<a class="nav-link " aria-current="page" href="pagina1.html"><h5>Doador</h5> </a>
-  			</li>
-  			<li class="nav-item">
-    			<a class="nav-link " aria-current="page" href="pagina2.html"><h5>Donatário</h5></a>
-  			</li>
-  			<li class="nav-item">
-    			<a class="nav-link " aria-current="page" href="pagina3.html"><h5>Contatos</h5></a>
-  			</li>
-		</ul>
+	<nav>
+		<div><a class="navbar-brand" href="#">
+				<img class="iconPageNav" src="../imagens do projeto/Logo do projeto.jpg">
+				Futuro em Nossas Mãos<br>
+			</a></div>
+		<div id="right-links">
+
+			<a href="index.html">Home</a>
+			<a href="pagina1.html">Doador</a>
+			<a href="pagina2.html">Donatário</a>
+			<a href="pagina3.html">Contatos</a>
+		</div>
 	</nav>
-	<div align="center">
+	<div>
 		<h1>Página do Donatário</h1>
 		<h2>Selecione os materiais para serem retirados</h2>
 
 		<div class="mb-2">
 			<div>
-			  <select name="opcoes" id="opcoes">
-				<option value="Senac Anapolis">Senac Anapolis</option>
-				<option value="Senac Cora Coralina">Senac Cora Coralina</option>
-				<option value="Faculdad Senac">Faculdad Senac</option>
-				<option value="Senac Aparecida de Goiania">Senac Aparecida de Goiania</option>
-			  </select>
+				<select id="localidade">
+					<option value="">Selecione uma localidade</option>
+					<option
+						value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.780254412028!2d-49.23792758513392!3d-16.63779413853193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef250d5f74183%3A0x78e6118444fcfc2e!2sFaculdade%20Senac%20Goi%C3%A1s%20-%20Sede!5e0!3m2!1spt-BR!2sbr!4v1681847056726!5m2!1spt-BR!2sbr">
+						Faculdade Senac Goiás - Sede</option>
+					<option
+						value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1910.2421677213413!2d-49.274319608254714!3d-16.75256215697693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef0a8a7e0e6d5%3A0x8fabeeb88a305c3b!2sSenac%20Aparecida%20de%20Goi%C3%A2nia!5e0!3m2!1spt-BR!2sbr!4v1681846951262!5m2!1spt-BR!2sbr">
+						Senac Aparecida de Goiânia</option>
+					<option
+						value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d478.6190587870949!2d-48.95171771216421!3d-16.325372649296508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ea47b2f37f365%3A0xd30ea0258959d377!2sSenac%20An%C3%A1polis!5e0!3m2!1spt-BR!2sbr!4v1681847512212!5m2!1spt-BR!2sbr">
+						Senac Anápolis</option>
+				</select>
 			</div>
-		  </div>
+		</div>
 
-		  <div class="mb-2">
+		<div class="mb-2">
 			<div>
-			  <select name="opcoes" id="opcoes">
-				<option value="Lapis">Lapis</option>
-				<option value="Caderno">Caderno</option>
-				<option value="Mochila">Mochila</option>
-				<option value="Estojo">Estojo</option>
-			  </select>
+				<select name="opcoes" id="opcoes">
+					<option value="Lapis">Lapis</option>
+					<option value="Caderno">Caderno</option>
+					<option value="Mochila">Mochila</option>
+					<option value="Estojo">Estojo</option>
+				</select>
 			</div>
-		  </div>
+		</div>
 
-		  <div>
-			<input id="nomed" type="text">
-			<div><label><small>*para doações anônimas deixe o texto em branco</small></label></div>
-		  </div>
+		<div class="mt-4">
+			<button class="btn btn-success" onclick="addRow()">Confirmar
+				Pedido</button>
 
-		  <div class="mt-4">
-			<button class="btn btn-success" style="background-color: #0717fd;" onclick="addRow()">Confirmar Pedido</button>
-			
-		</div> 
-	
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-	<script src="../scripts/pagina2.js"></script>
+		</div>
+		<div>
+			<iframe id="mapa1"
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.780254412028!2d-49.23792758513392!3d-16.63779413853193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef250d5f74183%3A0x78e6118444fcfc2e!2sFaculdade%20Senac%20Goi%C3%A1s%20-%20Sede!5e0!3m2!1spt-BR!2sbr!4v1681847056726!5m2!1spt-BR!2sbr"
+				width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+				referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+		<script>
+			const selectLocalidade = document.getElementById('localidade');
+			const mapa1 = document.getElementById('mapa1');
+
+			selectLocalidade.addEventListener('change', () => {
+				const url = selectLocalidade.value;
+				mapa1.src = url;
+			});
+		</script>
+	</div>
 </body>
+
 </html>

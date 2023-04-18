@@ -1,0 +1,53 @@
+body {
+    background-color: white;
+}
+
+nav {
+    margin: -1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: #0069F6;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    color: #fffefe;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 5px;
+
+}
+
+nav img {
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+
+#right-links {
+    display: flex;
+    align-items: center;
+}
+
+#right-links a {
+    margin-right: 50px;
+    color: white;
+}
+
+.iconPageNav {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+div{
+    padding: 5px;
+    text-align: center;
+}
+
