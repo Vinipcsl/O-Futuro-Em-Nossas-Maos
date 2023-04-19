@@ -41,21 +41,20 @@
 					<input required="" placeholder="" type="text" class="input">
 					<span>CPF</span>
 				</label>
-			
 				<label>
 					<input required="" placeholder="" type="password" class="input">
-					<span>Password</span>
+					<span>Telefone</span>
 				</label>
 				<label>
-					<input required="" placeholder="" type="password" class="input">
-					<span>Confirm password</span>
+					<select name="opcoes" class="stylematerial" id="opcoes">
+						<option value="">Selecione os materiais para serem retirados</option>
+						<option value="Lapis">Lapis</option>
+						<option value="Caderno">Caderno</option>
+						<option value="Mochila">Mochila</option>
+						<option value="Estojo">Estojo</option>
+					</select>
 				</label>
-				<button id="btn-confirmar">Confirmar pedido</button>
-			</form>
-		</div>
-		<div class="mb-2">
-			<div>
-				<h4 style="margin-bottom: 2px;">Selecione o local de retirada:</h4>
+				<label>
 				<select id="localidade">
 					<option value="">Selecione um local</option>
 					<option
@@ -68,6 +67,14 @@
 						value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d478.6190587870949!2d-48.95171771216421!3d-16.325372649296508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ea47b2f37f365%3A0xd30ea0258959d377!2sSenac%20An%C3%A1polis!5e0!3m2!1spt-BR!2sbr!4v1681847512212!5m2!1spt-BR!2sbr">
 						Senac Anápolis</option>
 				</select>
+				</label>
+				
+				<button id="btn-confirmar">Confirmar pedido</button>
+			</form>
+		</div>
+		<div class="mb-2">
+			<div>
+				
 				<p>*caso nao escolha o local a retirada ficara na Faculdade Senac Goiás - Sede</p>
 			</div>
 		</div>
@@ -76,12 +83,7 @@
 		</div>
 		<div class="mb-2">
 			<div>
-				<select name="opcoes" id="opcoes">
-					<option value="Lapis">Lapis</option>
-					<option value="Caderno">Caderno</option>
-					<option value="Mochila">Mochila</option>
-					<option value="Estojo">Estojo</option>
-				</select>
+				
 			</div>
 		</div>
 		<p class="input-container">

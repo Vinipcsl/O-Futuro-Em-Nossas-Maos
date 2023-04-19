@@ -79,10 +79,6 @@ button {
   button:active {
     transform: translateY(-1px);
   }
-.mb-2 p{
-    font-size: 9px;
-    margin-bottom: -10px;
-}
 
 
 /* ############################# */
@@ -173,7 +169,23 @@ button {
 .form label .input:valid + span {
   color: green;
 }
-
+.stylematerial{
+  order-color:grey;;
+  border-radius: 10px;
+  width: 95%;
+  height: 35px;
+  color: grey;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+}
+#localidade{
+  border-color:grey;;
+  border-radius: 10px;
+  width: 95%;
+  height: 35px;
+  color: grey;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  
+}
 
 @keyframes pulse {
   from {
