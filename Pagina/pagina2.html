@@ -21,28 +21,27 @@
 		</div>
 	</nav>
 </header>
+
 <body>
-	
 	<div>
-			<h1>Página do Donatário</h1>
-		<div>
+		<div class="wrapper">
 			<form class="form">
-				<p class="title">Solicitação </p>
+				<p class="title">Solicitar doação</p>
 				<p class="message">Preencha os dados para entrarmos em contato! </p>
 				<label>
-					<input required="" placeholder="" type="text" class="input">
+					<input required="" placeholder="" type="text" name="nome" class="input">
 					<span>Primeiro Nome</span>
 				</label>
 				<label>
-					<input required="" placeholder="" type="text" class="input">
+					<input required="" placeholder="" type="text" name="nome2" class="input">
 					<span>Ultimo Nome</span>
 				</label>
 				<label>
-					<input required="" placeholder="" type="text" class="input">
+					<input required="" placeholder="" type="text" name="cpf" class="input">
 					<span>CPF</span>
 				</label>
 				<label>
-					<input required="" placeholder="" type="password" class="input">
+					<input required="" placeholder="" type="text" name="telefone" name="telefone" class="input">
 					<span>Telefone</span>
 				</label>
 				<label>
@@ -55,63 +54,40 @@
 					</select>
 				</label>
 				<label>
-				<select id="localidade">
-					<option value="">Selecione um local</option>
-					<option
-						value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.780254412028!2d-49.23792758513392!3d-16.63779413853193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef250d5f74183%3A0x78e6118444fcfc2e!2sFaculdade%20Senac%20Goi%C3%A1s%20-%20Sede!5e0!3m2!1spt-BR!2sbr!4v1681847056726!5m2!1spt-BR!2sbr">
-						Faculdade Senac Goiás - Sede</option>
-					<option
-						value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1910.2421677213413!2d-49.274319608254714!3d-16.75256215697693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef0a8a7e0e6d5%3A0x8fabeeb88a305c3b!2sSenac%20Aparecida%20de%20Goi%C3%A2nia!5e0!3m2!1spt-BR!2sbr!4v1681846951262!5m2!1spt-BR!2sbr">
-						Senac Aparecida de Goiânia</option>
-					<option
-						value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d478.6190587870949!2d-48.95171771216421!3d-16.325372649296508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ea47b2f37f365%3A0xd30ea0258959d377!2sSenac%20An%C3%A1polis!5e0!3m2!1spt-BR!2sbr!4v1681847512212!5m2!1spt-BR!2sbr">
-						Senac Anápolis</option>
-				</select>
+					<select id="localidade">
+						<option value="">Selecione o local de retirada</option>
+						<option
+							value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.780254412028!2d-49.23792758513392!3d-16.63779413853193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef250d5f74183%3A0x78e6118444fcfc2e!2sFaculdade%20Senac%20Goi%C3%A1s%20-%20Sede!5e0!3m2!1spt-BR!2sbr!4v1681847056726!5m2!1spt-BR!2sbr">
+							Faculdade Senac Goiás - Sede</option>
+						<option
+							value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1910.2421677213413!2d-49.274319608254714!3d-16.75256215697693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef0a8a7e0e6d5%3A0x8fabeeb88a305c3b!2sSenac%20Aparecida%20de%20Goi%C3%A2nia!5e0!3m2!1spt-BR!2sbr!4v1681846951262!5m2!1spt-BR!2sbr">
+							Senac Aparecida de Goiânia</option>
+						<option
+							value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d478.6190587870949!2d-48.95171771216421!3d-16.325372649296508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ea47b2f37f365%3A0xd30ea0258959d377!2sSenac%20An%C3%A1polis!5e0!3m2!1spt-BR!2sbr!4v1681847512212!5m2!1spt-BR!2sbr">
+							Senac Anápolis</option>
+					</select>
+					<p>*caso nao escolha o local a retirada ficara na Faculdade Senac Goiás - Sede</p>
 				</label>
-				
 				<button id="btn-confirmar">Confirmar pedido</button>
 			</form>
-		</div>
-		<div class="mb-2">
-			<div>
-				
-				<p>*caso nao escolha o local a retirada ficara na Faculdade Senac Goiás - Sede</p>
+			<div id="iframe-wrapper">
+				<iframe id="mapa1"
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.780254412028!2d-49.23792758513392!3d-16.63779413853193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef250d5f74183%3A0x78e6118444fcfc2e!2sFaculdade%20Senac%20Goi%C3%A1s%20-%20Sede!5e0!3m2!1spt-BR!2sbr!4v1681847056726!5m2!1spt-BR!2sbr"
+					width="900" height="590" style="border:0;" allowfullscreen="" loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"></iframe>
 			</div>
 		</div>
 		<div>
-			<h4 style="margin-bottom: 2px;">Selecione os materiais para serem retirados:</h4>
-		</div>
-		<div class="mb-2">
-			<div>
-				
-			</div>
-		</div>
-		<p class="input-container">
-			<label for="text" style="margin-right: 1%;">Nome: </label>
-			<input type="text" name="nome" placeholder="Digite seu nome">
-			<br><br>
-			<label for="text" style="margin-right: 2%;">CPF:</label>
-			<input type="text" name="cpf" placeholder="Digite seu CPF">
-			<br><br>
-			<label for="text">Telefone:</label>
-			<input type="text" name="telefone" placeholder="Digite seu telefone">
-		</p>
-		<div class="mt-4">
-			<button id="btn-confirmar">Confirmar pedido</button>
-		</div>
-		<div>
-			<iframe id="mapa1"
-				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.780254412028!2d-49.23792758513392!3d-16.63779413853193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef250d5f74183%3A0x78e6118444fcfc2e!2sFaculdade%20Senac%20Goi%C3%A1s%20-%20Sede!5e0!3m2!1spt-BR!2sbr!4v1681847056726!5m2!1spt-BR!2sbr"
-				width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"
-				referrerpolicy="no-referrer-when-downgrade"></iframe>
+			
 		</div>
 		<script>
 			function validarCampos() {
 				const nome = document.querySelector('input[name="nome"]').value;
+				const nome2 = document.querySelector('input[name="nome2"]').value;
 				const cpf = document.querySelector('input[name="cpf"]').value;
 				const telefone = document.querySelector('input[name="telefone"]').value;
 
-				if (!nome || !cpf || !telefone) {
+				if (!nome || !nome2 || !cpf || !telefone) {
 					alert('Por favor, preencha todos os campos!');
 					return false;
 				}
@@ -123,15 +99,27 @@
 				event.preventDefault();
 				if (validarCampos()) {
 					alert('Pedido confirmado! Aguarde contato!');
-					// aqui você pode enviar o formulário ou realizar outras ações
 				}
 			});
+
 			const selectLocalidade = document.getElementById('localidade');
 			const mapa1 = document.getElementById('mapa1');
 
 			selectLocalidade.addEventListener('change', () => {
 				const url = selectLocalidade.value;
 				mapa1.src = url;
+			});
+
+			const select = document.querySelector('#opcoes');
+			select.addEventListener('change', () => {
+				if (select.value !== '') {
+					
+					select.classList.add('selecionado');
+					select.classList.remove('selecionado2');
+				} else {
+					select.classList.add('selecionado2');
+					select.classList.remove('selecionado');
+				}
 			});
 		</script>
 	</div>

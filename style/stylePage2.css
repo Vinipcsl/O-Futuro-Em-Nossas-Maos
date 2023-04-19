@@ -1,89 +1,96 @@
 body {
-    background-color: rgb(226, 242, 248);
+  text-align: center;
+  background-color: rgb(226, 242, 248);
+}
+
+div {
+  padding: 5px;
+  text-align: center;
+}
+
+body div{
+  margin-top: 20px;
 }
 
 nav {
-    margin: -1%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    background-color: #0069F6;
+  margin: -1%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  background-color: #0069F6;
 }
 
 nav a {
-    display: flex;
-    align-items: center;
-    color: #fffefe;
-    font-weight: bold;
-    text-decoration: none;
-    margin: 0 5px;
+  display: flex;
+  align-items: center;
+  color: #fffefe;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 5px;
 
 }
 
 nav img {
-    margin-left: 10px;
-    margin-top: 5px;
-    width: 50px;
-    height: 50px;
+  margin-left: 10px;
+  margin-top: 5px;
+  width: 50px;
+  height: 50px;
 }
 
 
 #right-links {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #right-links a {
-    margin-right: 50px;
-    color: white;
+  margin-right: 50px;
+  color: white;
 }
 
 .iconPageNav {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }
 
-div{
-    padding: 5px;
-    text-align: center;
-}
 
 button {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 1.3em 3em;
-    font-size: 7px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000000;
-    background-color: #fff;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  button:hover {
-    background-color: #23c483;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
-  }
-  
-  button:active {
-    transform: translateY(-1px);
-  }
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 1.3em 3em;
+  font-size: 7px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
 
+button:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
 
-/* ############################# */
+button:active {
+  transform: translateY(-1px);
+}
+
 
 .form {
+  width: 50%;
+  float: left;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -92,6 +99,12 @@ button {
   padding: 20px;
   border-radius: 20px;
   position: relative;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .title {
@@ -105,7 +118,8 @@ button {
   padding-left: 30px;
 }
 
-.title::before,.title::after {
+.title::before,
+.title::after {
   position: absolute;
   content: "";
   height: 16px;
@@ -145,7 +159,7 @@ button {
   border-radius: 10px;
 }
 
-.form label .input + span {
+.form label .input+span {
   position: absolute;
   left: 10px;
   top: 15px;
@@ -155,37 +169,55 @@ button {
   transition: 0.3s ease;
 }
 
-.form label .input:placeholder-shown + span {
+.form label .input:placeholder-shown+span {
   top: 15px;
   font-size: 0.9em;
 }
 
-.form label .input:focus + span,.form label .input:valid + span {
+.form label .input:focus+span,
+.form label .input:valid+span {
   top: 30px;
   font-size: 0.7em;
   font-weight: 600;
 }
 
-.form label .input:valid + span {
+.form label .input:valid+span {
   color: green;
 }
-.stylematerial{
-  order-color:grey;;
+.stylematerial:valid+span{
+  color: green;
+}
+
+.stylematerial {
+  border-color: grey;
   border-radius: 10px;
   width: 95%;
   height: 35px;
   color: grey;
   border: 1px solid rgba(105, 105, 105, 0.397);
 }
-#localidade{
-  border-color:grey;;
+
+#localidade {
+  border-color: grey;
   border-radius: 10px;
   width: 95%;
   height: 35px;
   color: grey;
   border: 1px solid rgba(105, 105, 105, 0.397);
-  
+
 }
+#mapa1{
+  margin-top: -20px;
+  border-radius: 5px;;
+}
+.selecionado {
+  border: 2px solid green;
+}
+
+.selecionado2 {
+  border: 2px solid red;
+}
+
 
 @keyframes pulse {
   from {
