@@ -6,8 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
 	<link rel="stylesheet" href="../style/stylePage2.css">
 </head>
-
-<body>
+<header>
 	<nav>
 		<div><a class="navbar-brand" href="#">
 				<img class="iconPageNav" src="../imagens do projeto/Logo do projeto.jpg">
@@ -21,12 +20,42 @@
 			<a href="pagina3.html">Contatos</a>
 		</div>
 	</nav>
+</header>
+<body>
+	
 	<div>
-		<h1>Página do Donatário</h1>
-
-		<h4 style="margin-bottom: 2px;">Selecione o local de retirada:</h4>
+			<h1>Página do Donatário</h1>
+		<div>
+			<form class="form">
+				<p class="title">Solicitação </p>
+				<p class="message">Preencha os dados para entrarmos em contato! </p>
+				<label>
+					<input required="" placeholder="" type="text" class="input">
+					<span>Primeiro Nome</span>
+				</label>
+				<label>
+					<input required="" placeholder="" type="text" class="input">
+					<span>Ultimo Nome</span>
+				</label>
+				<label>
+					<input required="" placeholder="" type="text" class="input">
+					<span>CPF</span>
+				</label>
+			
+				<label>
+					<input required="" placeholder="" type="password" class="input">
+					<span>Password</span>
+				</label>
+				<label>
+					<input required="" placeholder="" type="password" class="input">
+					<span>Confirm password</span>
+				</label>
+				<button id="btn-confirmar">Confirmar pedido</button>
+			</form>
+		</div>
 		<div class="mb-2">
 			<div>
+				<h4 style="margin-bottom: 2px;">Selecione o local de retirada:</h4>
 				<select id="localidade">
 					<option value="">Selecione um local</option>
 					<option
@@ -42,7 +71,9 @@
 				<p>*caso nao escolha o local a retirada ficara na Faculdade Senac Goiás - Sede</p>
 			</div>
 		</div>
-		<h4 style="margin-bottom: 2px;">Selecione os materiais para serem retirados:</h4>
+		<div>
+			<h4 style="margin-bottom: 2px;">Selecione os materiais para serem retirados:</h4>
+		</div>
 		<div class="mb-2">
 			<div>
 				<select name="opcoes" id="opcoes">
