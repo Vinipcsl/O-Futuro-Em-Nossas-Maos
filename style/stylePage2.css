@@ -196,16 +196,6 @@ button:active {
   color: grey;
   border: 1px solid rgba(105, 105, 105, 0.397);
 }
-
-#localidade {
-  border-color: grey;
-  border-radius: 10px;
-  width: 95%;
-  height: 35px;
-  color: grey;
-  border: 1px solid rgba(105, 105, 105, 0.397);
-
-}
 #mapa1{
   margin-top: -20px;
   border-radius: 5px;;
