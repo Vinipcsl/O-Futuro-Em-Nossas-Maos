@@ -1,22 +1,42 @@
-button {
-	padding: 10px 20px;
-	font-size: 18px;
-	background-color: #F1DEE9;
+body {
+	background-color: #eedce7;
+}
+
+nav{
+	background-color: #0069f6;
+	height: 60px;
+}
+
+header a{
+	color: #fffefe;
+}
+
+nav img{
+	margin-top: -15px;
+	width: 60px; 
+	height: 50px;
+}
+
+.textAligniCenter{
+	margin: 20px 15%;
+}
+
+li a h5 {
 	color: white;
+}
+
+button {
+	padding: 10px 200px;
 	border: none;
-	border-radius: 5px;
 	cursor: pointer;
 	margin: 10px;
 }
 
-button:hover {
-	background-color: #F1DEE9;
+footer {
+	background-color: #0069f6;
 }
 
-body{
-	background-color: #F1DEE9;
-}
-div{
-
-	
+footer img{
+	width: 60px;
+	height: 50px;
 }
