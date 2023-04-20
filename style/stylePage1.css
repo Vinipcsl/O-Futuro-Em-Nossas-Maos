@@ -246,6 +246,14 @@ button:active {
     letter-spacing: 1px;
 }
 
+.selecionado {
+    border: 2px solid green;
+  }
+  
+  .selecionado2 {
+    border: 2px solid red;
+  }
+
 @keyframes pulse {
     from {
         transform: scale(0.9);

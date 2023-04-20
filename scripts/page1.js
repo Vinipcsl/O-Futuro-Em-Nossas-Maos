@@ -51,3 +51,27 @@ window.onload = function () {
 		}
 	}
 }
+
+/*inicio mudar cor da opcao select*/
+const select = document.querySelector('#opcoes');
+const select2 = document.querySelector('#localidade');
+select.addEventListener('change', () => {
+	if (select.value !== '') {
+		select.classList.add('selecionado');
+		select.classList.remove('selecionado2');
+	} else {
+		select.classList.add('selecionado2');
+		select.classList.remove('selecionado');
+	}
+});
+
+select2.addEventListener('change', () => {
+	if (select2.value !== '') {
+		select2.classList.add('selecionado');
+		select2.classList.remove('selecionado2');
+	} else {
+		select2.classList.add('selecionado2');
+		select2.classList.remove('selecionado');
+	}
+});
+/*fim mudar cor da opcao select*/
