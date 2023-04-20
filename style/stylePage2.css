@@ -25,10 +25,12 @@ nav a {
   display: flex;
   align-items: center;
   color: #fffefe;
-  font-weight: bold;
   text-decoration: none;
   margin: 0 2px;
 
+}
+.navbar-brand {
+  margin-top: -5%;
 }
 
 nav img {
@@ -52,6 +54,7 @@ nav img {
   border-radius: 50%;
   width: 45px;
   height: 45px;
+  margin-top: 10px;
   margin-right: 10px;
   margin-bottom: 20px;
 }

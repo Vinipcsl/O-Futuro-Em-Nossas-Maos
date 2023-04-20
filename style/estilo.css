@@ -1,15 +1,42 @@
 body {
-	background-color: #eedce7;
-}
-
-nav{
-	background-color: #0069f6;
+	background-color: rgb(226, 242, 248);
+  }
+  
+  nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	height: 60px;
-}
-
-header a{
+	background-color: #0069F6;
+  }
+  
+  nav a {
+	display: flex;
+	align-items: center;
 	color: #fffefe;
-}
+	text-decoration: none;
+  
+  }
+  
+  
+  #right-links {
+	display: flex;
+	align-items: center;
+  }
+  
+  #right-links a {
+	margin-right: 50px;
+	color: white;
+  }
+  
+  .iconPageNav {
+	margin-left: 10px;
+	margin-top: 1px;
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	margin-right: 10px;
+  }
 
 nav img{
 	margin-top: -15px;
