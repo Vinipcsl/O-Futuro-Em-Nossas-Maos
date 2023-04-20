@@ -212,7 +212,6 @@ button:active {
   border: 2px solid red;
 }
 
-
 @keyframes pulse {
   from {
     transform: scale(0.9);

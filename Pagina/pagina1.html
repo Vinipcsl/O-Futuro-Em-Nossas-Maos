@@ -24,12 +24,11 @@
 <body>
 	<div>
 		<h1 style="color: #F5A818;">Pagina de Doação</h1>
-		<h2 style="color: #F5A818;">Selecione os itens a serem doados</h2>
 	</div>
 	<!--  -->
 	<div class="wrapper">
 		<form class="form">
-			<p class="title">Solicitar doação</p>
+			<p class="title">Fazer doação</p>
 			<p class="message">Preencha os dados para entrarmos em contato! </p>
 			<label>
 				<input required="" placeholder="" id="nomed" type="text" name="nome" class="input">
@@ -46,6 +45,7 @@
 			</label>
 			<label>
 				<select required="" name="opcoes" class="stylematerial" id="opcoes">
+					<option value="">Seleciona o material</option>
 					<option value="Lapis">Lapis</option>
 					<option value="Caderno">Caderno</option>
 					<option value="Mochila">Mochila</option>
@@ -56,9 +56,9 @@
 		</form>
 		<!--  -->
 		<div class="container text-center">
-			<table class="table table-striped" id="myTable" border="1">
+			<table class="table table-striped" id="myTable">
 				<tr class="table table-dark">
-					<th>Produto</th>
+					<th>Material</th>
 					<th>Quantidade</th>
 					<th>Doador</th>
 				</tr>

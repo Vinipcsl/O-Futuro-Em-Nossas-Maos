@@ -1,30 +1,40 @@
 function addRow() {
 	var valorSelecionado = document.getElementById("opcoes").value;
 	var doadorValid = document.getElementById("nomed");
+	var telefo = document.getElementById("telef");
+	
+	// Verifica se os campos obrigatórios estão preenchidos
+	if (doadorValid.value === "" || telefo.value === "" || valorSelecionado === "") {
+	  alert("Por favor, preencha todos os campos obrigatórios.");
+	  return;
+	}
+	
+	// Código para inserir uma nova linha na tabela
 	let table = document.getElementById("myTable");
 	let row = table.insertRow(-1);
 	let produto = row.insertCell(0);
 	let quantidade = row.insertCell(1);
 	let doador = row.insertCell(2);
 	if (doadorValid.value == "") {
-		doadorValid.value = "Anônimo";
+	  doadorValid.value = "Anônimo";
 	}
-	doador.innerHTML = doadorValid;
+	doador.innerHTML = doadorValid.value;
 	produto.innerHTML = valorSelecionado;
-	doador.innerHTML = document.getElementById("nomed").value;
 	quantidade.innerHTML = document.getElementById("campoQuant").value;
-
+  
+	// Código para armazenar os produtos no localStorage
 	var produtos = [];
 	for (var i = 1; i < table.rows.length; i++) {
-		produto = {
-			nome: table.rows[i].cells[0].innerHTML,
-			quantidade: table.rows[i].cells[1].innerHTML,
-			doador: table.rows[i].cells[2].innerHTML,
-		};
-		produtos.push(produto);
+	  produto = {
+		nome: table.rows[i].cells[0].innerHTML,
+		quantidade: table.rows[i].cells[1].innerHTML,
+		doador: table.rows[i].cells[2].innerHTML,
+	  };
+	  produtos.push(produto);
 	}
 	localStorage.setItem("produtos", JSON.stringify(produtos));
-}
+  }
+  
 window.onload = function () {
 	var produtos = localStorage.getItem("produtos");
 	if (produtos) {
