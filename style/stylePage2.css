@@ -22,6 +22,7 @@ nav {
   justify-content: space-between;
   height: 60px;
   background-color: #0069F6;
+  width: 100%;
 }
 
 nav a {
