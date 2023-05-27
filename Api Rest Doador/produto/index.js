@@ -5,11 +5,11 @@ const app = express();
 
 // Configurações de conexão com o banco de dados
 const pool = new Pool({
-  user: 'seu_usuario',
-  password: 'sua_senha',
+  user: 'PostgreSQL14',
+  password: '123',
   host: 'localhost',
   port: 5432,
-  database: 'seu_banco_de_dados',
+  database: 'Doador',
 });
 
 // Middleware para processar dados no formato JSON
