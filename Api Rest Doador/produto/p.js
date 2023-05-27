@@ -1,45 +1,41 @@
-const pool = require('../BancoDeDados/banco');
+const mysql = require('mysql');
 
-class Produto {
-  constructor(id, nome, descricao) {
-    this.id = id;
-    this.nome = nome;
-    this.descricao = descricao;
+// Configurações de conexão com o banco de dados
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'PostgreSQL14',
+  password: '123',
+  database: 'Doador',
+});
+
+// Estabelecer a conexão
+connection.connect((err) => {
+  if (err) {
+    console.error('Erro ao conectar ao banco de dados: ' + err.stack);
+    return;
   }
 
-  static async encontrarTodos() {
-    const { rows } = await pool.query('SELECT * FROM produtos');
-    return rows.map((row) => new Produto(row.id, row.nome, row.descricao));
-  }
+  console.log('Conexão bem-sucedida ao banco de dados!');
+  
+  // Aqui você pode executar consultas ou operações no banco de dados
 
-  static async encontrarPorId(id) {
-    const { rows } = await pool.query('SELECT * FROM produtos WHERE id = $1', [id]);
-    if (rows.length === 0) {
-      return null;
+  // Exemplo: Executando uma consulta
+  connection.query('SELECT * FROM tabela', (error, results, fields) => {
+    if (error) {
+      console.error('Erro ao executar a consulta: ' + error.stack);
+      return;
     }
-    const row = rows[0];
-    return new Produto(row.id, row.nome, row.descricao);
-  }
 
-  async salvar() {
-    if (this.id) {
-      await pool.query('UPDATE produtos SET nome = $1, descricao = $2, preco = $3 WHERE id = $4', [
-        this.nome,
-        this.descricao,
-        this.id,
-      ]);
-    } else {
-      const { rows } = await pool.query(
-        'INSERT INTO produtos (nome, descricao) VALUES ($1, $2, $3) RETURNING id',
-        [this.nome, this.descricao, this.preco]
-      );
-      this.id = rows[0].id;
+    console.log('Resultados da consulta:', results);
+  });
+
+  // Fechar a conexão quando terminar de usar o banco de dados
+  connection.end((err) => {
+    if (err) {
+      console.error('Erro ao fechar a conexão com o banco de dados: ' + err.stack);
+      return;
     }
-  }
 
-  async deletar() {
-    await pool.query('DELETE FROM produtos WHERE id = $1', [this.id]);
-  }
-}
-
-module.exports = Produto;
+    console.log('Conexão fechada com o banco de dados.');
+  });
+});
