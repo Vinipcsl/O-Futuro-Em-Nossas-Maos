@@ -29,8 +29,10 @@ function removeFromCart(productId) {
 
 function getProductById(productId) {
   var productNames = {
-    1: "Caderno Tilibra Azul",
-    2: "Caderno Tilibra Amarelo"
+    1: "Caderno Tilibra Azul 1",
+    2: "Caderno Tilibra Amarelo 2",
+    3: "Caderno Tilibra Azul 3",
+    4: "Caderno Tilibra Amarelo 4"
   };
   return productNames[productId] || "Produto " + productId;
 }
