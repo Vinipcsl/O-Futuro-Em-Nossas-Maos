@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<header>
+  <nav>
+    <div><a class="navbar-brand" href="index.html" style="color: white;">
+        <img class="iconPageNav" src="./imagens do projeto/Logo do projeto.jpg">
+        Futuro em Nossas Mãos<br>
+      </a></div>
+    <div id="right-links">
+      <a href="index.html">Home</a>
+      <a href="pagina1.html">Doador</a>
+      <a href="pagina2.html">Donatário</a>
+      <a href="pagina3.html">Contatos</a>
+    </div>
+  </nav>
+</header>
+
+<body>
+
+  <h1>PRODUTOS</h1>
+  <div class="container">
+    <div id="products">
+      <h2>Produtos Disponíveis</h2>
+      <div class="product">
+        <img id="imgProduto" src="cadernoTilibraAzul.jpg" alt="Caderno Tilibra Azul">
+        <h3>Caderno Tilibra Azul</h3>
+        <button onclick="addToCart(1)">Adicionar ao Carrinho</button>
+        <button id="checkout-btn" onclick="removeFromCart(1)">Remove</button>
+      </div>
+      <div class="product">
+        <img id="imgProduto" src="cadernoTilibraAmarelo.jpg" alt="Caderno Tilibra Amarelo">
+        <h3>Caderno Tilibra Amarelo</h3>
+        <button onclick="addToCart(2)">Adicionar ao Carrinho</button>
+        <button id="checkout-btn" onclick="removeFromCart(2)">Remove</button>
+      </div>
+    </div>
+
+    <div id="cart">
+      <h2>Seu Carrinho</h2>
+      <ul id="cart-items"></ul>
+      <button id="checkout-btn" onclick="checkout()">Finalizar pedido</button>
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
