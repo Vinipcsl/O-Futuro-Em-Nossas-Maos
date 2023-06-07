@@ -2,7 +2,7 @@ body {
     text-align: center;
     background-color: rgb(226, 242, 248);
     padding-left: 5px;
-  padding-right: 5px;
+    padding-right: 5px;
 }
 
 div {
@@ -21,7 +21,7 @@ nav {
     justify-content: space-between;
     height: 60px;
     background-color: #0069F6;
-    width: 100%;
+    width: 105%;
 }
 
 nav a {
@@ -251,11 +251,11 @@ button:active {
 
 .selecionado {
     border: 2px solid green;
-  }
-  
-  .selecionado2 {
+}
+
+.selecionado2 {
     border: 2px solid red;
-  }
+}
 
 @keyframes pulse {
     from {
