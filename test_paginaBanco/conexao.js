@@ -11,7 +11,7 @@ const dbConfig = {
 // Função para inserir um pedido no banco de dados
 async function insertPedido(id_pedido, quantidade, produto) {
   const client = new Client(dbConfig);
-  
+
   try {
     await client.connect();
     const query = 'INSERT INTO pedidos (id_pedido, quantidade, produto) VALUES ($1, $2, $3)';
