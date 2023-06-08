@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Carrinho de Compras</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="conexao.js"></script>
+  <script src="carrinho.js"></script>
 </head>
 <header>
   <nav>
@@ -28,27 +29,27 @@
       <h2>Produtos Disponíveis</h2>
       <div class="product">
         <img id="imgProduto" src="cadernoTilibraAzul.jpg" alt="Caderno Tilibra Azul">
-        <h3>Caderno Tilibra Azul</h3>
+        <h3>Caderno Tilibra Azul 1</h3>
         <button onclick="addToCart(1)">Adicionar ao Carrinho</button>
-        <button id="checkout-btn" onclick="removeFromCart(1)">Remover</button>
+        <button id="remove-btn-1" onclick="removeFromCart(1)">Remover</button>
       </div>
       <div class="product">
         <img id="imgProduto" src="cadernoTilibraAmarelo.jpg" alt="Caderno Tilibra Amarelo">
-        <h3>Caderno Tilibra Amarelo</h3>
+        <h3>Caderno Tilibra Amarelo 2</h3>
         <button onclick="addToCart(2)">Adicionar ao Carrinho</button>
-        <button id="checkout-btn" onclick="removeFromCart(2)">Remover</button>
+        <button id="remove-btn-2" onclick="removeFromCart(2)">Remover</button>
       </div>
       <div class="product">
         <img id="imgProduto" src="cadernoTilibraAzul.jpg" alt="Caderno Tilibra Azul">
-        <h3>Caderno Tilibra Azul</h3>
+        <h3>Caderno Tilibra Azul 3</h3>
         <button onclick="addToCart(3)">Adicionar ao Carrinho</button>
-        <button id="checkout-btn" onclick="removeFromCart(3)">Remover</button>
+        <button id="remove-btn-3" onclick="removeFromCart(3)">Remover</button>
       </div>
       <div class="product">
         <img id="imgProduto" src="cadernoTilibraAmarelo.jpg" alt="Caderno Tilibra Amarelo">
-        <h3>Caderno Tilibra Azul</h3>
+        <h3>Caderno Tilibra Azul 4</h3>
         <button onclick="addToCart(4)">Adicionar ao Carrinho</button>
-        <button id="checkout-btn" onclick="removeFromCart(4)">Remover</button>
+        <button id="remove-btn-4" onclick="removeFromCart(4)">Remover</button>
       </div>
     </div>
 
@@ -56,10 +57,9 @@
       <h2>Seu Carrinho</h2>
       <ul id="cart-items"></ul>
       <button id="checkout-btn" onclick="checkout()">Finalizar pedido</button>
-
+      <p id="checkout-message"></p>
     </div>
   </div>
-  <script src="script.js"></script>
 </body>
-
 </html>
+

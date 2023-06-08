@@ -36,6 +36,7 @@ function getProductById(productId) {
   };
   return productNames[productId] || "Produto " + productId;
 }
+
 function updateCart() {
   var cartItemsElement = document.getElementById("cart-items");
   cartItemsElement.innerHTML = "";
@@ -48,24 +49,29 @@ function updateCart() {
 }
 
 function checkout() {
-  fetch('/checkout', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(cartItems)
-  })
-    .then(response => {
-      if (response.ok) {
-        alert("Pedido finalizada! Dados enviados para o servidor.");
-        cartItems = [];
-        updateCart();
-      } else {
-        alert("Erro ao finalizar o pedido. Tente novamente mais tarde.");
-      }
-    })
-    .catch(error => {
-      console.error('Erro ao finalizar a compra:', error);
-      alert("Erro ao finalizar o pedido. Tente novamente mais tarde.");
-    });
+  // Verifica se há itens no carrinho
+  if (cartItems.length === 0) {
+    showMessage("Seu carrinho está vazio!");
+    return;
+  }
+
+  //Envia os dados do carrinho para o banco de dados
+  cartItems.forEach(item => {
+    var id_pedido = item.id;
+    var quantidade = item.quantity;
+    var produto = item.name;
+
+    //Chama a função insertPedido() para inserir o pedido no banco de dados
+    insertPedido(id_pedido, quantidade, produto);
+  });
+
+  //limpar o carrinho
+  cartItems = [];
+  updateCart();
+  showMessage("Pedido finalizado com sucesso!");
+}
+
+function showMessage(message) {
+  var messageElement = document.getElementById("checkout-message");
+  messageElement.innerText = message;
 }
