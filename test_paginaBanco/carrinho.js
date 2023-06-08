@@ -49,7 +49,7 @@ function updateCart() {
 }
 
 function checkout() {
-  // Verifica se há itens no carrinho
+  
   if (cartItems.length === 0) {
     showMessage("Seu carrinho está vazio!");
     return;
