@@ -86,7 +86,7 @@ router.delete('/', (req, res, next) =>{
         if(error){return res.status(500).send({error: error})}
         conn.query(
 
-            'UDELETE FROM produtos WHERE id_produto = ?',
+            'DELETE FROM produtos WHERE id_produto = ?',
 
             [   req.body.nome, 
                 req.body.quant, 
