@@ -1,132 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HOME - Futuro em Nossas Mãos</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-	<link rel="stylesheet" href="./style/styleIndex.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doador</title>
+    <link rel="stylesheet" href="./estilo.css">
 </head>
-
-<header>
-	<nav>
-		<div>
-			<a class="navbar-brand" href="index.html" style="color: white;">
-				<img class="iconPageNav" src="./imagens do projeto/Logo do projeto.jpg">
-				Futuro em Nossas Mãos<br>
-			</a>
-		</div>
-		<div id="right-links">
-			<a href="index.html">Home</a>
-			<a href="pagina1.html">Doador</a>
-			<a href="pagina2.html">Donatário</a>
-			<a href="pagina3.html">Contatos</a>
-		</div>
-	</nav>
-</header>
-
-
 <body>
-	<div id="carouselExampleIndicators" class="carousel slide">
-		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-				aria-current="true" aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-				aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-				aria-label="Slide 3"></button>
-		</div>
+    <header>
+        <nav>
+            <div>
+                <a class="navbar-brand" href="index.html" style="color: white;">
+                    <img class="iconPageNav" src="./imagens do projeto/Logo do projeto.jpg">
+                    Futuro em Nossas Mãos<br>
+                </a>
+            </div>
+            <div id="right-links">
+                <a href="index.html">Home</a>
+                <a href="pagina1.html">Doador</a>
+                <a href="pagina2.html">Donatário</a>
+                <a href="pagina3.html">Contatos</a>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <h1 style="color: #F5A818;">Pagina de Doação</h1>
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <h1>Cadastro</h1>
+            <form id="doadorForm">
+                <input type="hidden" id="doadorId">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+                <label for="sobreNome">Sobrenome:</label>
+                <input type="text" id="sobrenome" required>
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" required>
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
 
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="./imagens do projeto/criança1.jpeg" class="d-block w-100" alt="..." width="800" height="620">
-				<div class="container ">
-					<div class="carousel-caption text-start">
-						<h1>Venha fazer parte <br> dessa historia.</h1>
-						<p>Faça uma doação para ajudar jovem com menores condições a <br>mudarem sua história, com sua
-							participação iremos traçar um<br>
-							caminho de novas oportunidades para as novas gerações.</p>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<img src="./imagens do projeto/depositphotos_13405793-stock-photo-assorted-school-supplies-with-notebooks.jpg"
-					class="d-block w-100" alt="..." width="800" height="620">
-			</div>
-			<div class="carousel-item">
-				<img src="./imagens do projeto/material escolar.jpg" class="d-block w-100" alt="..." width="800"
-					height="620">
-			</div>
-		</div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody id="doadores"></tbody>
+    </table>
 
-		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-			data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
-		</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const API_URL = 'http://localhost:3000/doadores';
 
-		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-			data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
-		</button>
-	</div>
+            const doadorForm = document.getElementById('doadorForm');
+            const doadorIdInput = document.getElementById('doadorId');
+            const doadorNomeInput = document.getElementById('nome');
+            const doadorSobrenomeInput = document.getElementById('sobrenome');
+            const doadorTelefoneInput = document.getElementById('telefone');
+            const doadoresTable = document.getElementById('doadores');
 
-	<div class="textAligniCenter">
-		<h1 class="featurette-heading fw-normal lh-1"><b>Quem Somos?</b></h1>
-		<p class="fw-medium">Nós somos um grupo de alunos do curso de Analise e desenvolvimento do SENAC, 
-			que decidimos nos unir para ajudar crianças em situação de vulnerabilidade através da doação de materiais escolares. 
-			Fundada em fevereiro de 2023, nossa organização tem como objetivo fornecer materiais essenciais para aqueles
-			 que não têm recursos para adquiri-los.
-			 <br>
-			Acreditamos que cada pessoa merece ter uma educação digna e que, juntos, podemos fazer a diferença na
-			vida daqueles que precisam. Nosso objetivo é promover a igualdade e a inclusão social por meio da
-			doação.<br>
-			Temos uma equipe dedicada de voluntários que trabalham incansavelmente para arrecadar doações e
-			distribuí-las de forma justa e eficiente. Nossos esforços são financiados por meio de doações de pessoas
-			e empresas que acreditam em nossa causa e querem ajudar a fazer a diferença.<br>
-			Agradecemos o apoio de todos aqueles que compartilham nossa visão e se juntam a nós nessa missão de
-			fazer o mundo um lugar melhor para todos. Juntos, podemos ajudar a construir um futuro mais justo e
-			equitativo para todos.
-		</p>
-	</div>
+            doadorForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
 
-	<div class="textAligniCenter">
-		<img src="./imagens do projeto/depositphotos_5973030-stock-photo-school-office-supplies.jpg" alt="foto de crianças" class="d-inline-block"width="800" height="620" >
-	</div>
+                const doadorId = doadorIdInput.value;
+                const nome = doadorNomeInput.value;
+                const sobrenome = doadorSobrenomeInput.value;
+                const telefone = doadorTelefoneInput.value;
 
-<div class="textAligniCenter">
-	<p class="fw-medium">Nosso trabalho é feito por uma equipe de alunos voluntários dedicados que trabalham incansavelmente
-		 para garantir que todas as doações sejam entregues com segurança e rapidez. Somos guiados por nossos valores de solidariedade, 
-		 empatia e comprometimento com a causa.			  
-		  </p>
-</div>
+                if (doadorId) {
+                    await fetch(API_URL + '/' + doadorId, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ nome, sobrenome, telefone })
+                    });
+                } else {
+                    await fetch(API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ nome, sobrenome, telefone })
+                    });
+                }
+                resetForm();
+                await loadDoadores();
+            });
 
-<div class="textAligniCenter">
-	<img src="./imagens do projeto/286619150_3063302427268480_3664479960564443913_n.jpg"alt="Foto da turma" class="d-inline-block"width="800" height="620" >
-</div>
+            function resetForm() {
+                doadorIdInput.value = '';
+                doadorNomeInput.value = '';
+                doadorSobrenomeInput.value = '';
+                doadorTelefoneInput.value = '';
+            }
 
-<div class="textAligniCenter">
-	<p class="fw-medium">
-		Nossas doações são entregues para escolas públicas,
-		 creches e instituições que atendem crianças em situação de vulnerabilidade social. 
-		 Nosso objetivo é fornecer materiais escolares de qualidade para que essas crianças possam estudar com conforto e segurança.
-		 <br>
-		 Cada doação que recebemos faz uma grande diferença na vida de uma criança. Convidamos aqueles que ainda não contribuíram
-		  a se juntar a nós nessa causa nobre, entre em contato conosco. Juntos podemos mudar o mundo, uma criança de cada vez.	
-		</p>
-</div>
+            async function loadDoadores() {
+                const response = await fetch(API_URL);
+                const doadores = await response.json();
 
-	<footer>
-		<a href="index.html"><img src="./imagens do projeto/Logo do projeto.jpg" alt="Logo"
-				class="d-inline-block "></a>
-	</footer>
+                let html = '';
+                for (const doador of doadores) {
+                    const telefone = parseFloat(doador.telefone);
+                    if (!isNaN(telefone)) {
+                        html += `
+                        <tr>
+                            <td>${doador.id}</td>
+                            <td>${doador.nome}</td>
+                            <td>${doador.sobrenome}</td>
+                            <td>${telefone.toFixed(3)}</td>
+                            <td>
+                                <button onclick="editarDoador(${doador.id})">Editar</button>
+                                <button onclick="deletarDoador(${doador.id})">Deletar</button>
+                            </td>
+                        </tr>
+                        `;
+                    } else {
+                        console.error('Value of telefone is not a number');
+                    }
+                }
+                doadoresTable.innerHTML = html;
+            }
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
-		crossorigin="anonymous"></script>
-	<script src="./scripts/pagina.js"></script>
+            async function editarDoador(id) {
+                const doador = await fetch(API_URL + '/' + id);
+                const doadorJson = await doador.json();
+                doadorIdInput.value = doador.id;
+                doadorNomeInput.value = doador.nome;
+                doadorSobrenomeInput.value = doador.sobrenome;
+                doadorTelefoneInput.value = doador.telefone;
+            }
+            async function deletarDoador(id) {
+                await fetch(API_URL + '/' + id, {
+                    method: 'DELETE'
+                });
+                await loadDoadores();
+            }
+            loadDoadores();
+        });
+    </script>
 </body>
 </html>
