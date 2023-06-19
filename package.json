@@ -1,9 +1,22 @@
 {
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "projetoAPI Rafael",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Richard Lucas Marques Arruda",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongoose": "^7.2.2",
-    "pg": "^8.11.0"
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }

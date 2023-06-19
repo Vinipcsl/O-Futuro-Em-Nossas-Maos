@@ -1,81 +1,54 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
+
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>DONATÁRIO - Futuro em Nossas Mãos</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-	<link rel="stylesheet" href="./style/stylePage2.css">
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" type="text/css" href="style/stylePage2.css">
+  <script src="carrinho.js"></script>
+  <script src="server.js"></script>  
 </head>
 <header>
-	<nav>
-		<div><a class="navbar-brand" href="index.html">
-				<img class="iconPageNav" src="./imagens do projeto/Logo do projeto.jpg">
-				Futuro em Nossas Mãos<br>
-			</a></div>
-		<div id="right-links">
-			<a href="index.html">Home</a>
-			<a href="pagina1.html">Doador</a>
-			<a href="pagina2.html">Donatário</a>
-			<a href="pagina3.html">Contatos</a>
-		</div>
-	</nav>
+  <nav>
+    <div><a class="navbar-brand" href="index.html" style="color: white;">
+        <img class="iconPageNav" src="./imagens do projeto/Logo do projeto.jpg">
+        Futuro em Nossas Mãos<br>
+      </a>
+    </div>
+
+    <div id="right-links">
+      <a href="index.html">Home</a>
+      <a href="pagina1.html">Doador</a>
+      <a href="pagina2.html">Donatário</a>
+      <a href="pagina3.html">Contatos</a>
+    </div>
+  </nav>
 </header>
 
 <body>
-	<div class="wrapper">
-		<form class="form">
-			<p class="title">Solicitar doação</p>
-			<p class="message">Preencha os dados para entrarmos em contato! </p>
-			<label>
-				<input required="" placeholder="" type="text" name="nome" class="input">
-				<span>Primeiro Nome</span>
-			</label>
-			<label>
-				<input required="" placeholder="" type="text" name="nome2" class="input">
-				<span>Ultimo Nome</span>
-			</label>
-			<label>
-				<input required="" placeholder="" type="text" name="cpf" class="input">
-				<span>CPF</span>
-			</label>
-			<label>
-				<input required="" placeholder="" type="text" name="telefone" name="telefone" class="input">
-				<span>Telefone</span>
-			</label>
-			<label>
-				<select name="opcoes" class="stylematerial" id="opcoes">
-					<option value="">Selecione os materiais para serem retirados</option>
-					<option value="Lapis">Lapis</option>
-					<option value="Caderno">Caderno</option>
-					<option value="Mochila">Mochila</option>
-					<option value="Estojo">Estojo</option>
-				</select>
-			</label>
-			<label>
-				<select class="stylematerial" id="localidade">
-					<option value="">Selecione o local de retirada</option>
-					<option
-						value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.780254412028!2d-49.23792758513392!3d-16.63779413853193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef250d5f74183%3A0x78e6118444fcfc2e!2sFaculdade%20Senac%20Goi%C3%A1s%20-%20Sede!5e0!3m2!1spt-BR!2sbr!4v1681847056726!5m2!1spt-BR!2sbr">
-						Faculdade Senac Goiás - Sede</option>
-					<option
-						value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1910.2421677213413!2d-49.274319608254714!3d-16.75256215697693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef0a8a7e0e6d5%3A0x8fabeeb88a305c3b!2sSenac%20Aparecida%20de%20Goi%C3%A2nia!5e0!3m2!1spt-BR!2sbr!4v1681846951262!5m2!1spt-BR!2sbr">
-						Senac Aparecida de Goiânia</option>
-					<option
-						value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d478.6190587870949!2d-48.95171771216421!3d-16.325372649296508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ea47b2f37f365%3A0xd30ea0258959d377!2sSenac%20An%C3%A1polis!5e0!3m2!1spt-BR!2sbr!4v1681847512212!5m2!1spt-BR!2sbr">
-						Senac Anápolis</option>
-				</select>
-				<p>*caso nao escolha o local a retirada ficara na Faculdade Senac Goiás - Sede</p>
-			</label>
-			<button id="btn-confirmar">Confirmar pedido</button>
-		</form>
-		<div id="iframe-wrapper">
-			<iframe id="mapa1"
-				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.780254412028!2d-49.23792758513392!3d-16.63779413853193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef250d5f74183%3A0x78e6118444fcfc2e!2sFaculdade%20Senac%20Goi%C3%A1s%20-%20Sede!5e0!3m2!1spt-BR!2sbr!4v1681847056726!5m2!1spt-BR!2sbr"
-				width="900" height="590" style="border:0;" allowfullscreen="" loading="lazy"
-				referrerpolicy="no-referrer-when-downgrade"></iframe>
-		</div>
-	</div>
-	<script src="./scripts/page2.js"></script>
-</body>
 
+  <h1>PRODUTOS</h1>
+  <div class="container">
+    <div id="products">
+
+      <h2>Produtos Disponíveis</h2>
+      
+      <div class="product">
+        <img id="imgProduto" src="imagens do projeto/cadernoAzul.jpg" alt="Caderno Tilibra Azul">
+        <h3>Caderno Tilibra Azul 1</h3>
+        <button onclick="addToCart(1)" id="add-btn-1" data-id-produtos="1">Adicionar ao Carrinho</button>
+        <button id="remove-btn-1" onclick="removeFromCart(1)">Remover</button>
+      </div>
+
+    </div>
+
+    <div id="cart">
+      <h2>Seu Carrinho</h2>
+      <ul id="cart-items"></ul>
+      <button id="checkout-btn" onclick="checkout()">Finalizar pedido</button>
+      <p id="checkout-message"></p>
+    </div>
+
+  </div>
+
+</body>
 </html>

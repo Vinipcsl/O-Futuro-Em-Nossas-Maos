@@ -1,71 +1,126 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>DOADOR - Futuro em Nossas Mãos</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-	<link rel="stylesheet" href="./style/stylePage1.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./style/stylePage1.css">
+	<title>Formulário de Doadores</title>
 </head>
 <header>
-	<nav>
-		<div><a class="navbar-brand" href="index.html" style="color: white;">
-				<img class="iconPageNav" src="./imagens do projeto/Logo do projeto.jpg">
-				Futuro em Nossas Mãos<br>
-			</a></div>
-		<div id="right-links">
-			<a href="index.html">Home</a>
-			<a href="pagina1.html">Doador</a>
-			<a href="pagina2.html">Donatário</a>
-			<a href="pagina3.html">Contatos</a>
-		</div>
-	</nav>
+	<header>
+        <nav>
+            <div>
+                <a class="navbar-brand" href="index.html" style="color: white;">
+                    <img class="iconPageNav" src="./imagens do projeto/Logo do projeto.jpg">
+                    Futuro em Nossas Mãos<br>
+                </a>
+            </div>
+            <div id="right-links">
+                <a href="index.html">Home</a>
+                <a href="pagina1.html">Doador</a>
+                <a href="pagina2.html">Donatário</a>
+                <a href="pagina3.html">Contatos</a>
+            </div>
+        </nav>
+    </header>
 </header>
 
 <body>
-	<div>
-		<h1 style="color: #F5A818;">Pagina de Doação</h1>
-	</div>
-	<!--  -->
+
 	<div class="wrapper">
-		<form class="form">
-			<p class="title">Fazer doação</p>
+		<form id="doadorForm">
+			<p class="title">Formulário de Doadores</p>
 			<p class="message">Preencha os dados para entrarmos em contato! </p>
-			<label>
-				<input required="" placeholder="" id="nomed" type="text" name="nome" class="input">
-				<span>Nome</span>
-			</label>
-			<label>
-				<input required="" placeholder="" id="campoQuant" type="text" name="nome2" class="input">
-				<span>Quantidade</span>
-			</label>
-			<label>
-				<input required="" placeholder="" id="telef" type="text" name="telefone" name="telefone" class="input">
-				<span>Telefone</span><br>
-				<small>*Necessário para entrarmos em contato e coletar os materiais</small>
-			</label>
-			<label>
-				<select required="" name="opcoes" class="stylematerial" id="opcoes">
-					<option value="">Seleciona o material</option>
-					<option value="Lapis">Lapis</option>
-					<option value="Caderno">Caderno</option>
-					<option value="Mochila">Mochila</option>
-					<option value="Estojo">Estojo</option>
-				</select>
-			</label>
-			<button id="btn-confirmar" onclick="addRow()">Confirmar pedido</button>
+			<input type="hidden" id="doadorIdInput">
+			<label for="doadorNomeInput">Nome:</label>
+			<input type="text" id="doadorNomeInput" required>
+			</br>
+			</br>
+			<label for="doadorSobrenomeInput">Sobrenome:</label>
+			<input type="text" id="doadorSobrenomeInput" required>
+			</br>
+			</br>
+			<label for="doadorTelefoneInput">Telefone:</label>
+			<input type="text" id="doadorTelefoneInput" required>
+			</br>
+			</br>
+			<button type="submit">Salvar</button>
 		</form>
-		<!--  -->
-		<div class="container text-center">
-			<table class="table table-striped" id="myTable">
-				<tr class="table table-dark">
-					<th>Material</th>
-					<th>Quantidade</th>
-					<th>Doador</th>
-				</tr>
-			</table>
-		</div>
 	</div>
-	<script src="./scripts/page1.js"></script>
+
+	<h2>Lista de Doadores</h2>
+	<ul id="doadoresList"></ul>
+
+	<script>
+		const API_URL = 'http://localhost:3000/doador';
+
+		const doadorForm = document.getElementById('doadorForm');
+		const doadorIdInput = document.getElementById('doadorIdInput');
+		const doadorNomeInput = document.getElementById('doadorNomeInput');
+		const doadorSobrenomeInput = document.getElementById('doadorSobrenomeInput');
+		const doadorTelefoneInput = document.getElementById('doadorTelefoneInput');
+		const doadoresList = document.getElementById('doadoresList');
+
+		async function loadDoadores() {
+			const response = await fetch(API_URL);
+			const data = await response.json();
+
+			doadoresList.innerHTML = '';
+			data.response.forEach((doador) => {
+				const listItem = document.createElement('li');
+				listItem.innerHTML = `${doador.nome} ${doador.sobrenome} - ${doador.telefone}`;
+				listItem.addEventListener('click', () => editDoador(doador));
+				doadoresList.appendChild(listItem);
+			});
+		}
+
+		async function resetForm() {
+			doadorIdInput.value = '';
+			doadorNomeInput.value = '';
+			doadorSobrenomeInput.value = '';
+			doadorTelefoneInput.value = '';
+		}
+
+		async function editDoador(doador) {
+			doadorIdInput.value = doador.id;
+			doadorNomeInput.value = doador.nome;
+			doadorSobrenomeInput.value = doador.sobrenome;
+			doadorTelefoneInput.value = doador.telefone;
+		}
+
+		doadorForm.addEventListener('submit', async (event) => {
+			event.preventDefault();
+
+			const doadorId = doadorIdInput.value;
+			const nome = doadorNomeInput.value;
+			const sobrenome = doadorSobrenomeInput.value;
+			const telefone = doadorTelefoneInput.value;
+
+			if (doadorId) {
+				await fetch(`${API_URL}/${doadorId}`, {
+					method: 'PATCH',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ nome, sobrenome, telefone }),
+				});
+			} else {
+				await fetch(API_URL, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ nome, sobrenome, telefone }),
+				});
+			}
+
+			await resetForm();
+			await loadDoadores();
+		});
+
+		loadDoadores();
+	</script>
 </body>
 
 </html>

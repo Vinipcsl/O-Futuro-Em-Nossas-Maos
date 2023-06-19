@@ -11,7 +11,7 @@ div {
   text-align: center;
 }
 
-body div{
+body div {
   margin-top: 20px;
 }
 
@@ -33,6 +33,7 @@ nav a {
   margin: 0 2px;
 
 }
+
 .navbar-brand {
   margin-top: -5%;
 }
@@ -95,141 +96,31 @@ button:active {
   transform: translateY(-1px);
 }
 
+h1,
+h2 {
+  color: #333;
+}
 
-.form {
-  width: 50%;
-  float: left;
+.container {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 350px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 20px;
-  position: relative;
-}
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-.form-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+#products {
+  flex-basis: 70%;
 }
 
-.title {
-  font-size: 28px;
-  color: rgb(0, 0, 0);
-  font-weight: 600;
-  letter-spacing: -1px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding-left: 30px;
+#cart {
+  flex-basis: 30%;
+  border-left: 1px solid #ccc;
+  padding-left: 20px;
 }
 
-.title::before,
-.title::after {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  left: 0px;
-  background-color: rgb(78, 225, 65);
+.product {
+  display: inline-block;
+  margin-right: 10px;
 }
 
-.title::before {
-  width: 18px;
-  height: 18px;
-  background-color: rgb(65, 225, 73);
-}
 
-.title::after {
-  width: 18px;
-  height: 18px;
-  animation: pulse 1s linear infinite;
-}
-
-.flex {
-  display: flex;
-  width: 100%;
-  gap: 6px;
-}
-
-.form label {
-  position: relative;
-}
-
-.form label .input {
-  width: 90%;
-  padding: 10px;
-  outline: 0;
-  border: 1px solid rgba(105, 105, 105, 0.397);
-  border-radius: 10px;
-}
-
-.form label .input+span {
-  position: absolute;
-  left: 10px;
-  top: 15px;
-  color: grey;
-  font-size: 0.9em;
-  cursor: text;
-  transition: 0.3s ease;
-}
-
-.form label .input:placeholder-shown+span {
-  top: 15px;
-  font-size: 0.9em;
-}
-
-.form label .input:focus+span,
-.form label .input:valid+span {
-  top: 30px;
-  font-size: 0.7em;
-  font-weight: 600;
-}
-
-.form label .input:valid+span {
-  color: green;
-}
-.stylematerial:valid+span{
-  color: green;
-}
-
-.stylematerial {
-  border-color: grey;
-  border-radius: 10px;
-  width: 95%;
-  height: 35px;
-  color: grey;
-  border: 1px solid rgba(105, 105, 105, 0.397);
-}
-#mapa1{
-  margin-top: -20px;
-  border-radius: 5px;;
-}
-.selecionado {
-  border: 2px solid green;
-}
-
-.selecionado2 {
-  border: 2px solid red;
-}
-
-@keyframes pulse {
-  from {
-    transform: scale(0.9);
-    opacity: 1;
-  }
-
-  to {
-    transform: scale(1.8);
-    opacity: 0;
-  }
+#imgProduto {
+  height: 200px;
 }
